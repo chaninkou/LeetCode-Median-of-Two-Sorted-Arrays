@@ -1,7 +1,9 @@
 package leetcode4;
 
 public class FindMedianOfTwoSortedArrayFunction {
+	// time of O(log(m + n))
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+		// Pretending that nums2 have the longest length
 		if (nums1.length > nums2.length) {
 			return findMedianSortedArrays(nums2, nums1);
 		}
@@ -13,6 +15,7 @@ public class FindMedianOfTwoSortedArrayFunction {
 		int high = a;
 
 		while (low <= high) {
+			// Trying to get the game length
 			int partitionA = (low + high) / 2;
 			int partitionB = (a + b + 1) / 2 - partitionA;
 
@@ -47,9 +50,11 @@ public class FindMedianOfTwoSortedArrayFunction {
 			}
 
 			if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
+				// If the total number of both length add up to even, there should be two median
 				if ((a + b) % 2 == 0) {
 					return ((double) Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2;
 				} else {
+					// if odd, pick the median
 					return (double) Math.max(maxLeftA, maxLeftB);
 				}
 			} else if (maxLeftA > minRightB) {
