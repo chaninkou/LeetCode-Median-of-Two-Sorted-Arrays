@@ -63,11 +63,11 @@ public class FindMedianOfTwoSortedArrayFunction {
 
 			// ideal formula
 			if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
-				// If the total number of both length add up to even, there should be two median
+				// If the total number of both length add up to even, divided the two medians by 2
 				if ((a + b) % 2 == 0) {
 					return ((double) Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2;
 				} else {
-					// if odd, pick the median
+					// if odd, return one median
 					return (double) Math.max(maxLeftA, maxLeftB);
 				}
 			} else if (maxLeftA > minRightB) { // Have to make maxLeft smaller
