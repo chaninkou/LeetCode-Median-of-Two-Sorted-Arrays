@@ -3,7 +3,7 @@ package leetcode4;
 public class FindMedianOfTwoSortedArrayFunction {
 	// time of O(log(m + n))
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-		// Pretending that nums2 have the longest length
+		// Making sure nums2 should be the longer array.
 		if (nums1.length > nums2.length) {
 			return findMedianSortedArrays(nums2, nums1);
 		}
